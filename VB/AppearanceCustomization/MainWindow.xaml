@@ -1,0 +1,50 @@
+﻿<dx:ThemedWindow x:Class="AppearanceCustomization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        dx:ThemeManager.ThemeName="Office2019Colorful"
+        xmlns:local="clr-namespace:AppearanceCustomization"
+        mc:Ignorable="d"
+        Title="Appearance Customization" Height="450" Width="800">
+    <dxpg:PivotGridControl x:Name="pivotGrid" FocusedCell="2,2" 
+                           ShowBorder="True" 
+                           BorderThickness="2" 
+                           BorderBrush="#FFD9C99C">
+        <dxpg:PivotGridControl.Fields>
+            <dxpg:PivotGridField Area="RowArea" FieldName="Category" />
+            <dxpg:PivotGridField Area="RowArea" FieldName="Product" />
+            <dxpg:PivotGridField Area="ColumnArea" FieldName="Year" />
+            <dxpg:PivotGridField Area="DataArea" FieldName="Quantity" />
+        </dxpg:PivotGridControl.Fields>
+        <dxpg:PivotGridControl.CellStyle>
+            <Style TargetType="{x:Type dxpg:CellElement}">
+                <Setter Property="DataContext" Value="{DXBinding '@Self.ElementData'}" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{DXBinding 'RowIndex==PivotGrid.FocusedCell.Y or ColumnIndex==PivotGrid.FocusedCell.X'}" Value="True">
+                        <Setter Property="Background" Value="#e6f2fa" />
+                        <Setter Property="Foreground" Value="Brown"/>
+                        <Setter Property="BorderBrush" Value="#0072c6"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </dxpg:PivotGridControl.CellStyle>
+        <dxpg:PivotGridControl.FieldValueStyle>
+            <Style TargetType="{x:Type dxpg:FieldValueElement}">
+                <Setter Property="DataContext" Value="{DXBinding '@Self.ElementData'}" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{DXBinding 'IsColumn==false and MinLevel==MaxLevel and MaxLevel==PivotGrid.FocusedCell.Y - 1'}" Value="True">
+                        <Setter Property="Background" Value="#fdfdfd" />
+                        <Setter Property="Foreground" Value="Brown"/>
+                        <Setter Property="BorderBrush" Value="#51555f"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </dxpg:PivotGridControl.FieldValueStyle>
+    </dxpg:PivotGridControl>
+</dx:ThemedWindow>
