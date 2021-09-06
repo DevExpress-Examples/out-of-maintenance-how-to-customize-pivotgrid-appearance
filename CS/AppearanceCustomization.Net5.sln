@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppearanceCustomization", "AppearanceCustomization\AppearanceCustomization.csproj", "{71C0F4D5-C5FF-406D-B9D8-945528EA7E15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppearanceCustomization", "AppearanceCustomization\AppearanceCustomization.Net5.csproj", "{71C0F4D5-C5FF-406D-B9D8-945528EA7E15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
